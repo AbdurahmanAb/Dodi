@@ -1,0 +1,26 @@
+.select {
+  border: none;
+  color: #fff;
+  font-weight: 700;
+  padding: 1px;
+}
+.list {
+  list-style-type: none;
+}
+.card {
+  height: 200px;
+  margin: 2rem;
+  width: 400px;
+  background: #fff;
+  border-radius: 15px;
+  cursor: pointer;
+  h3 {
+    font-weight: 700;
+    color: #fff;
+  }
+}
+.gridl {
+  display: grid;
+  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+}
