@@ -1,8 +1,8 @@
-import React from "react";
-import Navbar from "../../components/Navbar/Navbar";
+import { useCollapse } from "react-collapsed";
 import "./contrats.scss";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet";
+import Demo from "../Demo";
 
 const Contrats = () => {
   const Added = (e) => {
@@ -13,6 +13,9 @@ const Contrats = () => {
       timer: 1500,
     });
   };
+
+  const { getCollapseProps, getToggleProps, isExpanded } = useCollapse();
+
   return (
     <div>
       <Helmet>
@@ -63,8 +66,13 @@ const Contrats = () => {
             placeholder="Driling"
             className="Contrats__input"
           />
-          <label htmlFor="date">Start Date</label>
-          <input type="date" id="date" className="Contrats__input" />
+
+          <input
+            type="date"
+            id="date"
+            className="Contrats__input"
+            placeholder="start Date"
+          />
           <input type="text" placeholder="Cost" className="Contrats__input" />
 
           <input
@@ -98,13 +106,53 @@ const Contrats = () => {
             placeholder="Maintainance Cost"
             className="Contrats__input"
           />
+          <input
+            type="text"
+            placeholder="Maintainance Cost"
+            className="Contrats__input"
+          />
           <button
             className="Contrats__btn btn btn-lg btn-primary"
             onClick={(e) => Added(e)}
           >
-            Add contrat
+            Add contract
           </button>
         </form>
+        <h1>View Contracts</h1>
+        <div className="gridl">
+          <div className="card text-center bg-warning Contrats__card">
+            <div className="card__salry p-4">
+              <h3 className="card__header">Building Contract</h3>
+              <p className="text ">Cost: +$123,456</p>
+              <div className="btns">
+                <button {...getToggleProps()} className="btn  btn-success">
+                  {isExpanded ? "Hide" : "View"}
+                </button>
+                <button className="btn btn-info mx-2">Update</button>
+                <button className="btn btn-danger mx-2 ">Delete</button>
+              </div>
+
+              <section {...getCollapseProps()}>
+                <ul className="list">
+                  <li>
+                    contract Recivable : <span>yes</span>
+                  </li>
+                  <li>contract Type : Permant </li>
+                  <li>Driling: Permant</li>
+                  <li>Start Date : Permant</li>
+                  <li>Cost: Permant</li>
+                  <li>Amount per Drim Cost: Permant </li>
+                  <li>Employee List : Permant </li>
+                  <li>Transportation : Permant</li>
+                  <li>Trip Beging : Permant</li>
+                  <li>Trip Destination : Permant </li>
+                  <li>Maintaince cost : Permant</li>
+                  <li>Type: Permant </li>
+                </ul>
+              </section>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

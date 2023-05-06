@@ -1,8 +1,7 @@
 .Contrats {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  grid-gap: 20px;
   &__input {
     padding: 1rem 2rem;
     border: none;
@@ -12,9 +11,13 @@
   }
   &__btn {
     align-self: center;
+    justify-self: center;
     padding: 1rem 2rem;
     border: none;
     font-weight: bold;
+  }
+  &__card {
+    height: fit-content !important;
   }
 }
 .form {
@@ -66,7 +69,6 @@
     font-size: 1.2rem;
     position: relative;
     padding-left: 3rem;
-    margin: 1rem;
   }
   &__radio--button {
     width: 2rem;
@@ -109,6 +111,12 @@ p {
   color: #333333;
   text-transform: capitalize;
 }
-option {
-  background: #000;
+
+.list {
+  margin: 1rem;
+  li {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    line-height: 2rem;
+  }
 }

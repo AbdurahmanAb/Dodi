@@ -7,6 +7,7 @@ import Contrats from "./pages/contrats/Contrats";
 import Employee from "./pages/Employee/Employee";
 import Report from "./pages/Report/Report";
 import Navbar from "./components/Navbar/Navbar";
+import { ClassNames } from "@emotion/react";
 
 function App() {
   return (

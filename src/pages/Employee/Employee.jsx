@@ -18,6 +18,14 @@ const Employee = () => {
       theme: "light",
     });
   };
+  const Added = (e) => {
+    e.preventDefault();
+    Swal.fire({
+      title: "Employee Added",
+      icon: "success",
+      timer: 1500,
+    });
+  };
   const Swalert = () => {
     Swal.fire({
       title: "Are you sure?",
@@ -39,11 +47,40 @@ const Employee = () => {
   };
 
   return (
-    <div>
+    <div className="container">
       <Helmet>
         <title>DODI || Employee</title>
       </Helmet>
+      <h1>Employee</h1>
+      <form className="Contrats mb-5">
+        <input
+          type="text"
+          placeholder="First Name"
+          className="Contrats__input"
+        />
 
+        <input
+          type="text"
+          placeholder="Last Name"
+          className="Contrats__input"
+        />
+
+        <input type="text" placeholder="Salary" className="Contrats__input" />
+
+        <input
+          type="text"
+          placeholder="Occupation"
+          className="Contrats__input"
+        />
+        <input type="text" placeholder="Type" className="Contrats__input" />
+
+        <button
+          className="Contrats__btn btn btn-lg btn-primary"
+          onClick={(e) => Added(e)}
+        >
+          Add contrat
+        </button>
+      </form>
       <div className="mt-5 tabler">
         <table className="table" style={{ backgroundColor: "#fff" }}>
           <thead className="thead-dark">

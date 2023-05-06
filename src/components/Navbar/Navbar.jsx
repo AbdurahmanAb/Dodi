@@ -7,6 +7,7 @@ import {
   FaCommentAlt,
   FaShoppingBag,
   FaThList,
+  FaHome,
 } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import "./navbar.scss";
@@ -14,6 +15,11 @@ const Navbar = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
   const menuItem = [
+    {
+      path: "/",
+      name: "Home",
+      icon: <FaHome />,
+    },
     {
       path: "/reports",
       name: "Reports",
