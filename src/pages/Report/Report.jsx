@@ -18,7 +18,7 @@ const Report = () => {
       </Helmet>
 
       <div className="container mt-5">
-        <h2>Salary Report</h2>
+        <h2>Reports</h2>
         <div className="m-2 p-3">
           <span className="m-2">Select Month</span>
           <select className="p-2 mx-1 bg-primary  select">
