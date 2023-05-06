@@ -1,8 +1,7 @@
 import Navbar from "../../components/Navbar/Navbar";
 import { useRef } from "react";
-
+import { Helmet } from "react-helmet";
 import "./report.scss";
-import { Modal } from "bootstrap";
 
 const Report = () => {
   const months = new Array(12)
@@ -14,6 +13,9 @@ const Report = () => {
   const option = useRef(null);
   return (
     <div>
+      <Helmet>
+        <title>DODI || Reports</title>
+      </Helmet>
       <Navbar />
 
       <div className="container mt-5">

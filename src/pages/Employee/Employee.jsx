@@ -4,7 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 import data from "./dummydata";
 import Swal from "sweetalert2";
 import "./employee.scss";
-
+import { Helmet } from "react-helmet";
 const Employee = () => {
   const notify = () => {
     toast.success("🦄 Employee Updated!", {
@@ -40,6 +40,9 @@ const Employee = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>DODI || Employee</title>
+      </Helmet>
       <Navbar />
       <div className="mt-5 tabler">
         <table className="table" style={{ backgroundColor: "#fff" }}>

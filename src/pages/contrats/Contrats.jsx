@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import "./contrats.scss";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const Contrats = () => {
   const Added = (e) => {
@@ -14,6 +15,9 @@ const Contrats = () => {
   };
   return (
     <div>
+      <Helmet>
+        <title>DODI || Contrats</title>
+      </Helmet>
       <Navbar />
       <div className="container mt-5">
         <h1 className="my-4">Add Contrats</h1>
