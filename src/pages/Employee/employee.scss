@@ -1,0 +1,28 @@
+.table {
+  overflow: scroll;
+}
+.tabler {
+  margin: 2rem;
+  @media (max-width: 991px) {
+    font-size: 0.8rem;
+  }
+  @media (max-width: 730px) {
+    margin: 0;
+  }
+}
+.btns {
+  @media (max-width: 991px) {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .btn1 {
+    @media (max-width: 991px) {
+      padding: 0.41rem;
+      height: 33px;
+    }
+  }
+}

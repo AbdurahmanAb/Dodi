@@ -3,6 +3,7 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import data from "./dummydata";
 import Swal from "sweetalert2";
+import "./employee.scss";
 
 const Employee = () => {
   const notify = () => {
@@ -40,27 +41,36 @@ const Employee = () => {
   return (
     <div>
       <Navbar />
-      <div className="container mt-5">
-        <table className="table">
+      <div className="mt-5 tabler">
+        <table className="table" style={{ backgroundColor: "#fff" }}>
           <thead className="thead-dark">
             <tr>
-              <th scope="col">SSN</th>
+              <th scope="col">ID</th>
               <th scope="col">First Name</th>
               <th scope="col">Last Name</th>
-              <th scope="col">Handle</th>
+              <th scope="col">Salary</th>
+              <th scope="col">Occupation</th>
+              <th scope="col">Type</th>
+              <th scope="col"> Handle</th>
             </tr>
           </thead>
           <tbody>
             {data.map((data, i) => (
               <tr key={i}>
-                <th scope="row">1</th>
+                <th scope="row">{data.ssn}</th>
                 <td>{data.name}</td>
                 <td>{data.last}</td>
-                <td>
-                  <button className="btn btn-primary mx-2" onClick={notify}>
+                <td>{data.salary}</td>
+                <td>{data.occupation}</td>
+                <td>{data.type}</td>
+                <td className="btns">
+                  <button
+                    className="btn btn-primary mx-2 btn1"
+                    onClick={notify}
+                  >
                     Update
                   </button>
-                  <button className="btn btn-danger" onClick={Swalert}>
+                  <button className="btn btn-danger btn1" onClick={Swalert}>
                     delete
                   </button>
                 </td>
