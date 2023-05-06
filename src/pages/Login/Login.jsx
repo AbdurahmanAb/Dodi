@@ -11,7 +11,7 @@ const Login = () => {
       <div className="body ">
         <div className="login">
           <form className="login__form bg-light" action="/">
-            <h2 className="text-primary ">Login To Your ccount</h2>
+            <h2 className="text-primary ">Login To Your Account</h2>
             <input
               type="email"
               className="login__input"

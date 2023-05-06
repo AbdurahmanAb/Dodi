@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import {
   FaTh,
   FaBars,
@@ -11,6 +11,7 @@ import {
 } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import "./navbar.scss";
+import { useLocation } from "react-router-dom";
 const Navbar = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
@@ -46,9 +47,23 @@ const Navbar = ({ children }) => {
       icon: <FaShoppingBag />,
     },
   ];
+  const sidebarRef = useRef();
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname === "/login") {
+      sidebarRef.current.style.visibility = "hidden";
+      sidebarRef.current.style.opacity = "0";
+    }
+  }, [location.pathname]);
+
   return (
     <div className="container1">
-      <div style={{ width: isOpen ? "200px" : "50px" }} className="sidebar">
+      <div
+        style={{ width: isOpen ? "200px" : "50px" }}
+        ref={sidebarRef}
+        className="sidebar"
+      >
         <div className="top_section">
           <h1 style={{ display: isOpen ? "block" : "none" }} className="logo">
             DODI
