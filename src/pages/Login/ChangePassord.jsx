@@ -5,7 +5,7 @@ const Login = () => {
   return (
     <div className="body">
       <div className="login">
-        <form className="login__form" action="/">
+        <form className="login__form bg-light" action="/">
           <input
             type="password"
             className="login__input"
@@ -25,7 +25,11 @@ const Login = () => {
             required
           />
 
-          <input type="submit" value="Change" className="login__btn" />
+          <input
+            type="submit"
+            value="Change"
+            className="login__btn btn btn-primary"
+          />
         </form>
       </div>
     </div>

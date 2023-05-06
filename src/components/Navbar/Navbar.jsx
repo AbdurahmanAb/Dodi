@@ -19,7 +19,7 @@ const Navbar = () => {
           id="navbarCollapse"
         >
           <li className="navbar__item">
-            <Link to="" className="navbar__link">
+            <Link to="/reports" className="navbar__link">
               Reports
             </Link>
           </li>
@@ -43,7 +43,7 @@ const Navbar = () => {
               </Link>
 
               <div className="dropdown-divider"></div>
-              <Link to="" className="navbar__link dropdown-item">
+              <Link to="/change" className="navbar__link dropdown-item">
                 Change Password
               </Link>
               <Link to="/login" className="navbar__link dropdown-item">
