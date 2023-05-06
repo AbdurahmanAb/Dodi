@@ -8,11 +8,32 @@ body {
 .container1 {
   display: flex;
   height: 100vh !important;
+  @media (max-width: 900px) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100% !important;
+
+    position: fixed;
+    top: 0;
+    height: 5rem !important;
+  }
 }
 main {
   width: 100%;
   padding: 20px;
   display: flex;
+  margin: 4rem;
+  @media (max-width: 900px) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100% !important;
+
+    position: fixed;
+    top: 0;
+    height: 5rem !important;
+  }
 }
 .sidebar {
   background: #a5a5a5;
@@ -23,6 +44,16 @@ main {
   width: 200px;
   transition: all 0.5s;
   position: fixed;
+  @media (max-width: 900px) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100% !important;
+
+    position: fixed;
+    top: 0;
+    height: 5rem !important;
+  }
 }
 .top_section {
   display: flex;

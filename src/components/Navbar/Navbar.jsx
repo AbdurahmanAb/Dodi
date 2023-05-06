@@ -9,6 +9,7 @@ import {
   FaThList,
   FaHome,
 } from "react-icons/fa";
+import { GrLogout, GrShieldSecurity } from "react-icons/gr";
 import { NavLink } from "react-router-dom";
 import "./navbar.scss";
 import { useLocation } from "react-router-dom";
@@ -39,12 +40,12 @@ const Navbar = ({ children }) => {
     {
       path: "/change",
       name: "Change Password",
-      icon: <FaCommentAlt />,
+      icon: <GrShieldSecurity />,
     },
     {
       path: "/login",
       name: "Log out",
-      icon: <FaShoppingBag />,
+      icon: <GrLogout />,
     },
   ];
   const sidebarRef = useRef();

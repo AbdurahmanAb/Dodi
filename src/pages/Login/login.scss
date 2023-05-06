@@ -6,16 +6,31 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: red;
+  @media (max-width: 800px) {
+    width: 100%;
+    margin-left: -2rem !important;
+  }
 }
 .login {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 20vh;
-  flex-direction: column;
+
   text-align: center;
   color: blue;
   font-weight: bold;
+  @media (max-width: 900px) {
+    margin-left: -3rem;
+    width: 100%;
+    font-size: 1rem;
+  }
+  @media (max-width: 800px) {
+    margin-left: -4rem;
+    width: 100%;
+    font-size: 1rem;
+  }
 
   &__input {
     padding: 1.3rem 1.5rem;
@@ -42,6 +57,9 @@ body {
     gap: 20px;
     padding: 4rem;
     width: 700px;
+    @media (max-width: 700px) {
+      width: 100%;
+    }
     h2 {
       font-weight: bold;
       font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",

@@ -52,33 +52,33 @@ const Employee = () => {
         <title>DODI || Employee</title>
       </Helmet>
       <h1>Employee</h1>
-      <form className="Contrats mb-5">
+      <form className="Contracts mb-5">
         <input
           type="text"
           placeholder="First Name"
-          className="Contrats__input"
+          className="Contracts__input"
         />
 
         <input
           type="text"
           placeholder="Last Name"
-          className="Contrats__input"
+          className="Contracts__input"
         />
 
-        <input type="text" placeholder="Salary" className="Contrats__input" />
+        <input type="text" placeholder="Salary" className="Contracts__input" />
 
         <input
           type="text"
           placeholder="Occupation"
-          className="Contrats__input"
+          className="Contracts__input"
         />
-        <input type="text" placeholder="Type" className="Contrats__input" />
+        <input type="text" placeholder="Type" className="Contracts__input" />
 
         <button
-          className="Contrats__btn btn btn-lg btn-primary"
+          className="Contracts__btn btn btn-lg btn-primary"
           onClick={(e) => Added(e)}
         >
-          Add contrat
+          Add Employees
         </button>
       </form>
       <div className="mt-5 tabler">

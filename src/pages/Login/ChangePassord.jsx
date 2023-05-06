@@ -7,35 +7,34 @@ const Login = () => {
       <Helmet>
         <title>DODI || Change</title>
       </Helmet>
-      <div className="body">
-        <div className="login">
-          <form className="login__form bg-light" action="/">
-            <input
-              type="password"
-              className="login__input"
-              placeholder="Old Password"
-              required
-            />
-            <input
-              type="password"
-              className="login__input"
-              placeholder="New Password"
-              required
-            />
-            <input
-              type="password"
-              className="login__input"
-              placeholder="Confirm password"
-              required
-            />
 
-            <input
-              type="submit"
-              value="Change"
-              className="login__btn btn btn-primary"
-            />
-          </form>
-        </div>
+      <div className="login">
+        <form className="login__form bg-light" action="/">
+          <input
+            type="password"
+            className="login__input"
+            placeholder="Old Password"
+            required
+          />
+          <input
+            type="password"
+            className="login__input"
+            placeholder="New Password"
+            required
+          />
+          <input
+            type="password"
+            className="login__input"
+            placeholder="Confirm password"
+            required
+          />
+
+          <input
+            type="submit"
+            value="Change"
+            className="login__btn btn btn-primary"
+          />
+        </form>
       </div>
     </>
   );
