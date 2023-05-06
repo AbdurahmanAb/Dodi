@@ -6,6 +6,7 @@ import ChangePassword from "./pages/Login/ChangePassord";
 import Contrats from "./pages/contrats/Contrats";
 import Employee from "./pages/Employee/Employee";
 import Report from "./pages/Report/Report";
+import Navbar from "./components/Navbar/Navbar";
 
 function App() {
   return (
@@ -31,15 +32,19 @@ function App() {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>DODI</title>
       </Helmet>
+
       <Router>
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/change" element={<ChangePassword />} />
-          <Route path="/contrats" element={<Contrats />} />
-          <Route path="/employee" element={<Employee />} />
-          <Route path="/reports" element={<Report />} />
-        </Routes>
+        <Navbar>
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+
+            <Route path="/change" element={<ChangePassword />} />
+            <Route path="/contrats" element={<Contrats />} />
+            <Route path="/employee" element={<Employee />} />
+            <Route path="/reports" element={<Report />} />
+            <Route path="/login" element={<Login />} />
+          </Routes>
+        </Navbar>
       </Router>
     </>
   );

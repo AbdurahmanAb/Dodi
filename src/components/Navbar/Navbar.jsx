@@ -1,92 +1,75 @@
+import React, { useState } from "react";
+import {
+  FaTh,
+  FaBars,
+  FaUserAlt,
+  FaRegChartBar,
+  FaCommentAlt,
+  FaShoppingBag,
+  FaThList,
+} from "react-icons/fa";
+import { NavLink } from "react-router-dom";
 import "./navbar.scss";
-import { Link } from "react-router-dom";
-
-const Navbar = () => {
+const Navbar = ({ children }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const toggle = () => setIsOpen(!isOpen);
+  const menuItem = [
+    {
+      path: "/reports",
+      name: "Reports",
+      icon: <FaTh />,
+    },
+    {
+      path: "/employee",
+      name: "Employee",
+      icon: <FaUserAlt />,
+    },
+    {
+      path: "/contrats",
+      name: "Contrats",
+      icon: <FaRegChartBar />,
+    },
+    {
+      path: "/change",
+      name: "Change Password",
+      icon: <FaCommentAlt />,
+    },
+    {
+      path: "/login",
+      name: "Log out",
+      icon: <FaShoppingBag />,
+    },
+  ];
   return (
-    <>
-      <div className="navbar navbar-expand-sm navbar-light bg-light">
-        <h1 className="navbar__logo">DODi</h1>
-        <button
-          type="button"
-          className="navbar-toggler"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarCollapse"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <ul
-          className="collapse navbar-collapse navbar__list"
-          id="navbarCollapse"
-        >
-          <li className="navbar__item">
-            <Link to="/reports" className="navbar__link">
-              Reports
-            </Link>
-          </li>
-          <li className="nav-item dropdown navbar__item">
-            <a
-              href="#"
-              className="nav-link dropdown-toggle navbar__link"
-              data-bs-toggle="dropdown"
+    <div className="container1">
+      <div style={{ width: isOpen ? "200px" : "50px" }} className="sidebar">
+        <div className="top_section">
+          <h1 style={{ display: isOpen ? "block" : "none" }} className="logo">
+            DODI
+          </h1>
+          <div style={{ marginLeft: isOpen ? "50px" : "0px" }} className="bars">
+            <FaBars onClick={toggle} style={{ cursor: "pointer" }} />
+          </div>
+        </div>
+        {menuItem.map((item, index) => (
+          <NavLink
+            to={item.path}
+            key={index}
+            className="link"
+            activeclassname="active"
+          >
+            <div className="icon">{item.icon}</div>
+            <div
+              style={{ display: isOpen ? "block" : "none" }}
+              className="link_text"
             >
-              Manage
-            </a>
-            <div className="dropdown-menu">
-              <Link to="/contrats" className="navbar__link dropdown-item">
-                Contrats
-              </Link>
-              <Link to="/employee" className="navbar__link dropdown-item">
-                Employee
-              </Link>
-              <Link to="/reports" className="navbar__link dropdown-item">
-                Reports
-              </Link>
-
-              <div className="dropdown-divider"></div>
-              <Link to="/change" className="navbar__link dropdown-item">
-                Change Password
-              </Link>
-              <Link to="/login" className="navbar__link dropdown-item">
-                Logout
-              </Link>
+              {item.name}
             </div>
-          </li>
-        </ul>
+          </NavLink>
+        ))}
       </div>
-    </> // <div className="">
-    //   <nav className="navbar navbar-expand-sm navbar-light bg-light ">
-    //     <div className="container-fluid  ">
-    //       <a href="#" className="navbar-brand">
-    //         Brand
-    //       </a>
-    //       <button
-    //         type="button"
-    //         className="navbar-toggler"
-    //         data-bs-toggle="collapse"
-    //         data-bs-target="#navbarCollapse"
-    //       >
-    //         <span className="navbar-toggler-icon"></span>
-    //       </button>
-    //       <div id="navbarCollapse" className="collapse navbar-collapse ">
-    //         <ul className="nav navbar-nav">
-    //           <ul className="nav navbar-nav ">
-    //             <li className="nav-item  ">
-    //               <a href="#" className="nav-link">
-    //                 Home
-    //               </a>
-    //             </li>
-    //             <li className="nav-item">
-    //               <a href="#" className="nav-link">
-    //                 Profile
-    //               </a>
-    //             </li>
-
-    //           </ul>
-    //         </ul>
-    //       </div>
-    //     </div>
-    //   </nav>
-    // </div>
+      <main>{children}</main>
+    </div>
   );
 };
 

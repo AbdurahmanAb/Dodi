@@ -43,7 +43,7 @@ const Employee = () => {
       <Helmet>
         <title>DODI || Employee</title>
       </Helmet>
-      <Navbar />
+
       <div className="mt-5 tabler">
         <table className="table" style={{ backgroundColor: "#fff" }}>
           <thead className="thead-dark">

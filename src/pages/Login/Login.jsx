@@ -1,11 +1,12 @@
 import "./login.scss";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const Login = () => {
   return (
     <>
       <Helmet>
-        <title>DODI || HOME</title>
+        <title>DODI ||Login</title>
       </Helmet>
       <div className="body ">
         <div className="login">

@@ -16,7 +16,6 @@ const Report = () => {
       <Helmet>
         <title>DODI || Reports</title>
       </Helmet>
-      <Navbar />
 
       <div className="container mt-5">
         <h2>Salary Report</h2>

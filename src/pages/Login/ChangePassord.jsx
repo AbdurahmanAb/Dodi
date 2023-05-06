@@ -5,7 +5,7 @@ const Login = () => {
   return (
     <>
       <Helmet>
-        <title>DODI || HOME</title>
+        <title>DODI || Change</title>
       </Helmet>
       <div className="body">
         <div className="login">
