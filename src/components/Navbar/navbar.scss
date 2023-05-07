@@ -67,6 +67,9 @@ main {
   display: flex;
   font-size: 25px;
   margin-left: 50px;
+  @media (max-width: 900px) {
+    display: none !important;
+  }
 }
 .link {
   display: flex;
