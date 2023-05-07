@@ -8,16 +8,17 @@ body {
 .container1 {
   display: flex;
   height: 100vh !important;
-  @media (max-width: 900px) {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100% !important;
+  overflow-y: scroll;
+  // @media (max-width: 900px) {
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: space-between;
+  //   width: 100% !important;
 
-    position: fixed;
-    top: 0;
-    height: 5rem !important;
-  }
+  //   position: fixed;
+  //   top: 0;
+  //   height: 5rem !important;
+  // }
 }
 main {
   width: 100%;
@@ -25,14 +26,6 @@ main {
   display: flex;
   margin: 4rem;
   @media (max-width: 900px) {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100% !important;
-
-    position: fixed;
-    top: 0;
-    height: 5rem !important;
   }
 }
 .sidebar {
@@ -47,11 +40,10 @@ main {
   @media (max-width: 900px) {
     display: flex;
     align-items: center;
+    overflow-y: scroll;
     justify-content: space-between;
     width: 100% !important;
 
-    position: fixed;
-    top: 0;
     height: 5rem !important;
   }
 }
