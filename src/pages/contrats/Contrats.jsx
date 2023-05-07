@@ -1,6 +1,6 @@
 import { useCollapse } from "react-collapsed";
 import "./contracts.scss";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet";
 import "react-responsive-modal/styles.css";
@@ -29,6 +29,14 @@ const Contracts = () => {
     setContract("Driling");
   };
   const { getCollapseProps, getToggleProps, isExpanded } = useCollapse();
+  useEffect(() => {
+    if (isExpanded) {
+      window.scrollTo({
+        top: document.documentElement.scrollHeight,
+        behavior: "smooth",
+      });
+    }
+  }, [isExpanded]);
 
   return (
     <div>
@@ -89,79 +97,7 @@ const Contracts = () => {
             Add Driling
           </button>
         </div>
-        {/* <form className="Contracts mb-5">
-          <input
-            type="text"
-            placeholder="Contract"
-            className="Contracts__input"
-          />
 
-          <div className="select">
-            <p>contract type</p>
-
-            <select name="select" id="select" className="btn btn-primary">
-              <option value="">permanet</option>
-              <option value="">contract</option>
-            </select>
-          </div>
-
-          <input
-            type="text"
-            placeholder="Driling"
-            className="Contracts__input"
-          />
-
-          <input
-            type="date"
-            id="date"
-            className="Contracts__input"
-            placeholder="start Date"
-          />
-          <input type="text" placeholder="Cost" className="Contracts__input" />
-
-          <input
-            type="text"
-            placeholder="Name -Amount Per diem cost"
-            className="Contracts__input"
-          />
-
-          <input
-            type="text"
-            placeholder="Employee list"
-            className="Contracts__input"
-          />
-          <input
-            type="text"
-            placeholder="Transportation"
-            className="Contracts__input"
-          />
-          <input
-            type="text"
-            placeholder="Trip Beginging"
-            className="Contracts__input"
-          />
-          <input
-            type="text"
-            placeholder="Trip Destination"
-            className="Contracts__input"
-          />
-          <input
-            type="number"
-            placeholder="Maintainance Cost"
-            className="Contracts__input"
-          />
-          <input
-            type="text"
-            placeholder="Maintainance Cost"
-            className="Contracts__input"
-          />
-          <button
-            className="Contracts__btn btn btn-lg btn-primary"
-            onClick={(e) => Added(e)}
-          >
-            Add contract
-          </button>
-        </form> */}
         <h1>View Contracts</h1>
         <div className="gridl">
           <div className="card text-center bg-warning Contracts__card">
