@@ -120,3 +120,12 @@ p {
     line-height: 2rem;
   }
 }
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
+}

@@ -85,7 +85,7 @@ const Contracts = () => {
 
         <div className="buttons m-5 ">
           <button
-            className="btn btn-lg btn-info text-white mr-2"
+            className="btn btn-lg btn-info text-white  "
             onClick={Truking}
           >
             Add Trucking
