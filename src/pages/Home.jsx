@@ -58,13 +58,13 @@ const Home = () => {
                     New Employee Registered
                   </h5>
                   <p className="text ">23:00, GMT</p>
+                  <button
+                    className="btn btn-lg btn-info text-white "
+                    onClick={onOpenModal}
+                  >
+                    View
+                  </button>
                 </div>
-                <button
-                  className="btn btn-lg btn-info text-white "
-                  onClick={onOpenModal}
-                >
-                  View
-                </button>
               </div>
             </div>
           </div>

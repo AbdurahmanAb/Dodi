@@ -30,10 +30,8 @@ const Report = () => {
           </select>
           <div className="gridl">
             <div className="card text-center bg-warning">
-              <div className="card__salry p-4">
-                <h3 className="card__header">Total Salarey</h3>
-                <span className="text">+$123,456</span>
-              </div>
+              <h3 className="card__header p-4">Total Salarey</h3>
+              <span className="text">+$123,456</span>
             </div>
             <div className="card text-center bg-success">
               <div className="card__salry p-4">
