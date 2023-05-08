@@ -62,7 +62,7 @@ const Home = () => {
                     </h5>
                     <p className="text ">23:00, GMT</p>
                     <button
-                      className="btn btn-lg btn-info text-white "
+                      className="button btn btn-lg btn-info text-white "
                       onClick={onOpenModal}
                     >
                       View
@@ -98,7 +98,7 @@ const Home = () => {
                     </h5>
                     <p className="text ">23:00, GMT</p>
                     <button
-                      className="btn btn-lg btn-info text-white "
+                      className="  button btn btn-lg btn-info text-white "
                       onClick={onOpenModal}
                     >
                       View
@@ -134,7 +134,7 @@ const Home = () => {
                     </h5>
                     <p className="text ">23:00, GMT</p>
                     <button
-                      className="btn btn-lg btn-info text-white "
+                      className="button btn btn-lg btn-info text-white "
                       onClick={onOpenModal}
                     >
                       View
@@ -170,7 +170,7 @@ const Home = () => {
                     </h5>
                     <p className="text ">23:00, GMT</p>
                     <button
-                      className="btn btn-lg btn-info text-white "
+                      className="button btn btn-lg btn-info text-white "
                       onClick={onOpenModal}
                     >
                       View
