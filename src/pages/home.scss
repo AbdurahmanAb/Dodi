@@ -23,3 +23,10 @@
   color: #fff;
   font-weight: bold;
 }
+.card__strip {
+  display: flex;
+  flex-direction: column;
+}
+.card__salary {
+  padding-top: 1rem;
+}

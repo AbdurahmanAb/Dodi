@@ -34,8 +34,11 @@ const Home = () => {
           </div>
           <div className="notications__card">
             <div className="gridl">
-              <div className="card text-center bg-light Contracts__card text-dark">
-                <div className="card__salry p-4">
+              <div
+                className="card  text-center bg-light Contracts__card text-dark fill"
+                style={{ width: "100%" }}
+              >
+                <div className="card__salary ">
                   <Modal open={open} onClose={onCloseModal} center>
                     <div className="mt-2">
                       <h2>Notification View</h2>
@@ -53,17 +56,18 @@ const Home = () => {
                       </ul>
                     </div>
                   </Modal>
-
-                  <h5 className="card__header text-dark">
-                    New Employee Registered
-                  </h5>
-                  <p className="text ">23:00, GMT</p>
-                  <button
-                    className="btn btn-lg btn-info text-white "
-                    onClick={onOpenModal}
-                  >
-                    View
-                  </button>
+                  <div className="card__strip">
+                    <h5 className="card__header text-dark">
+                      New Employee Registered
+                    </h5>
+                    <p className="text ">23:00, GMT</p>
+                    <button
+                      className="btn btn-lg btn-info text-white "
+                      onClick={onOpenModal}
+                    >
+                      View
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
