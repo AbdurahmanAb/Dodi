@@ -28,7 +28,7 @@ const Home = () => {
       <h1>DashBoard</h1>
       <div className="container">
         <div className="Notifications m-5">
-          <div className="relative bg-light px-5 py-2">
+          <div className="relative  px-5 py-2">
             <h4>Notifications</h4>
             <span className="Icon">4</span>
           </div>
@@ -70,8 +70,117 @@ const Home = () => {
                   </div>
                 </div>
               </div>
+              <div
+                className="card  text-center bg-light Contracts__card text-dark fill"
+                style={{ width: "100%" }}
+              >
+                <div className="card__salary ">
+                  <Modal open={open} onClose={onCloseModal} center>
+                    <div className="mt-2">
+                      <h2>Notification View</h2>
+                      <h4>New Employee Registered</h4>
+                      <ul>
+                        <li>Employee Name: Abdu</li>
+                        <li>Salary $1,000,000</li>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing
+                        elit. Error architecto, dicta excepturi animi natus
+                        optio id, ad labore maxime sunt quaerat eligendi quam a
+                        expedita earum quis. Consequatur maiores sequi sed
+                        exercitationem nam magnam delectus ipsa voluptatum
+                        eligendi facilis debitis at modi, maxime sint, minima,
+                        temporibus saepe fuga facere quas?
+                      </ul>
+                    </div>
+                  </Modal>
+                  <div className="card__strip">
+                    <h5 className="card__header text-dark">
+                      New Employee Registered
+                    </h5>
+                    <p className="text ">23:00, GMT</p>
+                    <button
+                      className="btn btn-lg btn-info text-white "
+                      onClick={onOpenModal}
+                    >
+                      View
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="card  text-center bg-light Contracts__card text-dark fill"
+                style={{ width: "100%" }}
+              >
+                <div className="card__salary ">
+                  <Modal open={open} onClose={onCloseModal} center>
+                    <div className="mt-2">
+                      <h2>Notification View</h2>
+                      <h4>New Employee Registered</h4>
+                      <ul>
+                        <li>Employee Name: Abdu</li>
+                        <li>Salary $1,000,000</li>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing
+                        elit. Error architecto, dicta excepturi animi natus
+                        optio id, ad labore maxime sunt quaerat eligendi quam a
+                        expedita earum quis. Consequatur maiores sequi sed
+                        exercitationem nam magnam delectus ipsa voluptatum
+                        eligendi facilis debitis at modi, maxime sint, minima,
+                        temporibus saepe fuga facere quas?
+                      </ul>
+                    </div>
+                  </Modal>
+                  <div className="card__strip">
+                    <h5 className="card__header text-dark">
+                      New Employee Registered
+                    </h5>
+                    <p className="text ">23:00, GMT</p>
+                    <button
+                      className="btn btn-lg btn-info text-white "
+                      onClick={onOpenModal}
+                    >
+                      View
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="card  text-center bg-light Contracts__card text-dark fill"
+                style={{ width: "100%" }}
+              >
+                <div className="card__salary ">
+                  <Modal open={open} onClose={onCloseModal} center>
+                    <div className="mt-2">
+                      <h2>Notification View</h2>
+                      <h4>New Employee Registered</h4>
+                      <ul>
+                        <li>Employee Name: Abdu</li>
+                        <li>Salary $1,000,000</li>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing
+                        elit. Error architecto, dicta excepturi animi natus
+                        optio id, ad labore maxime sunt quaerat eligendi quam a
+                        expedita earum quis. Consequatur maiores sequi sed
+                        exercitationem nam magnam delectus ipsa voluptatum
+                        eligendi facilis debitis at modi, maxime sint, minima,
+                        temporibus saepe fuga facere quas?
+                      </ul>
+                    </div>
+                  </Modal>
+                  <div className="card__strip">
+                    <h5 className="card__header text-dark">
+                      New Employee Registered
+                    </h5>
+                    <p className="text ">23:00, GMT</p>
+                    <button
+                      className="btn btn-lg btn-info text-white "
+                      onClick={onOpenModal}
+                    >
+                      View
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
+          <button className="btn btn-success p-2 text-center">view all</button>
         </div>
 
         <Graphs chartData={userData} />
