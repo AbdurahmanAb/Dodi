@@ -42,3 +42,9 @@ h5 {
 .Notifications {
   text-align: center;
 }
+.hide {
+  visibility: hidden;
+  opacity: 0;
+  display: none;
+  transform: 0.4s ease;
+}
