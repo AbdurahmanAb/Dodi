@@ -12,8 +12,8 @@
 }
 .Icon {
   position: absolute;
-  top: 0.2rem;
-  right: 1.4rem;
+  top: 0.4rem;
+  right: 2.75rem;
   height: 1.52rem;
   width: 1.6rem;
   padding: 0 5px;
@@ -22,4 +22,29 @@
   background-color: red;
   color: #fff;
   font-weight: bold;
+}
+.card__strip {
+  display: flex;
+  flex-direction: column;
+
+  padding: 0;
+}
+.card__salary {
+  padding: 0 !important;
+  padding-top: 0.5rem !important;
+}
+.button {
+  padding: 0 !important;
+}
+h5 {
+  font-size: 1.1rem !important;
+}
+.Notifications {
+  text-align: center;
+}
+.hide {
+  visibility: hidden;
+  opacity: 0;
+  display: none;
+  transform: 0.4s ease;
 }
