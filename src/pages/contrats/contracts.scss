@@ -20,10 +20,17 @@
     height: fit-content !important;
   }
 }
+
+.customModal {
+  display: inline-flex;
+  flex-direction: column;
+  width: 100%;
+}
 .form {
   &__group:not(:last-child) {
     margin-bottom: 2rem;
   }
+
 
   &__input {
     font-size: 1rem;

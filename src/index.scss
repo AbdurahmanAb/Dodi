@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  overflow: scroll !important;
+  overflow-x: initial !important;
 }
 @media (max-width: 900px) {
   .container {

@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 import { Helmet } from "react-helmet";
 import "react-responsive-modal/styles.css";
 import { Modal } from "react-responsive-modal";
+import {DrillingForm} from "./../../components/Forms/DrillingForm";
 
 const Contracts = () => {
   const Added = (e) => {
@@ -47,21 +48,13 @@ const Contracts = () => {
       <div className="container mt-5">
         <h1 className="my-4">Add Contracts</h1>
         {contract === "Driling" && (
-          <Modal open={open} onClose={onCloseModal} center>
-            <h2>Driling</h2>
-            <form className="Contracts mb-5">
-              <input
-                type="text"
-                placeholder="Contract"
-                className="Contracts__input"
-              />
-
-              <input
-                type="text"
-                placeholder="Driling"
-                className="Contracts__input"
-              />
-            </form>
+          <Modal open={open} onClose={onCloseModal} center
+          classNames={{
+            modal: 'customModal',
+          }}>
+            <h2>Drilling Contract</h2>
+              <DrillingForm/>
+           
           </Modal>
         )}
         {contract === "Trucking" && (
