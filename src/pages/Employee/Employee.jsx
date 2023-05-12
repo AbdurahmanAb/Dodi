@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+import DataTable from "react-data-table-component";
+
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
 import Swal from "sweetalert2";
 import {
   useDeleteEmployeesMutation,
@@ -22,7 +25,38 @@ import {
 } from "reactstrap";
 import { useForm, Controller } from "react-hook-form";
 import { Helmet } from "react-helmet";
+import { FaSearch } from "react-icons/fa";
 const Employee = () => {
+  const columns = [
+    {
+      name: "Name",
+      selector: (row) => row.name,
+      sortable: true,
+    },
+    {
+      name: "Salary",
+      selector: (row) => row.salary,
+      sortable: true,
+    },
+    {
+      name: "Occupation",
+      selector: (row) => row.occupation,
+      sortable: true,
+    },
+    {
+      name: "Type",
+      selector: (row) => row.type,
+    },
+  ];
+  
+  const [records, setRecords] = useState(data);
+  const handleChange = (e) => {
+    console.log(e.target.value);
+    const newData = data.filter((row) => {
+      return row.name.toLowerCase().includes(e.target.value.toLowerCase());
+    });
+    setRecords(newData);
+  };
   const {
     control,
     handleSubmit,
@@ -60,6 +94,8 @@ const Employee = () => {
       });
     }
   };
+  
+
 
   const notify = () => {
     toast.success("🦄 Employee Updated!", {

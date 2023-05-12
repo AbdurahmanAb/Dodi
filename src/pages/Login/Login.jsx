@@ -8,10 +8,15 @@ const Login = () => {
       <Helmet>
         <title>DODI ||Login</title>
       </Helmet>
+      <div className="container">
+        <h1 className="text-primary text-center font-bold mt-5">
+          <span className="mx-3">&#128075;</span>Welcome Admin
+        </h1>
+      </div>
 
       <div className="login">
         <form className="login__form bg-light" action="/">
-          <h2 className="text-primary ">Login </h2>
+          <h2 className="text-primary ">Login</h2>
           <input
             type="email"
             className="login__input"

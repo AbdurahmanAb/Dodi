@@ -6,6 +6,7 @@ import { Helmet } from "react-helmet";
 import "./home.scss";
 import "react-responsive-modal/styles.css";
 import { Modal } from "react-responsive-modal";
+
 const Home = () => {
   const [userData, setUserData] = useState({
     labels: Data.map((data) => data.year),
