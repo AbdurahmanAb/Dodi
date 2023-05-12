@@ -25,3 +25,17 @@
     }
   }
 }
+.employee__search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  input {
+    outline: none !important;
+    margin-right: 0 !important;
+  }
+  span {
+    padding: 1rem;
+    background-color: rgb(225, 225, 225);
+  }
+}

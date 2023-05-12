@@ -1,4 +1,3 @@
-import Navbar from "../../components/Navbar/Navbar";
 import { useRef } from "react";
 import { Helmet } from "react-helmet";
 import "./report.scss";

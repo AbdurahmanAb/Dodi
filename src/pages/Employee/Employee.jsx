@@ -1,11 +1,172 @@
-import Navbar from "../../components/Navbar/Navbar";
+import React, { useState } from "react";
+import DataTable from "react-data-table-component";
+
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import data from "./dummydata";
+
 import Swal from "sweetalert2";
 import "./employee.scss";
 import { Helmet } from "react-helmet";
+import { Input } from "reactstrap";
+import { FaSearch } from "react-icons/fa";
 const Employee = () => {
+  const columns = [
+    {
+      name: "Name",
+      selector: (row) => row.name,
+      sortable: true,
+    },
+    {
+      name: "Salary",
+      selector: (row) => row.salary,
+      sortable: true,
+    },
+    {
+      name: "Occupation",
+      selector: (row) => row.occupation,
+      sortable: true,
+    },
+    {
+      name: "Type",
+      selector: (row) => row.type,
+    },
+  ];
+  const data = [
+    {
+      ssn: "245798",
+      name: "abdu Jhon",
+      salary: "$45,000",
+      occupation: "FrontEnd Developer",
+      type: "Contractual",
+    },
+    {
+      ssn: "955798",
+      name: "Jane Just",
+      salary: "$15,000",
+      occupation: "Accountant",
+      type: "Permanent",
+    },
+    {
+      ssn: "2005798",
+      name: "Hary Wilson",
+      salary: "$65,000",
+      occupation: "DevOps Engineer",
+      type: "FreeLance",
+    },
+    {
+      ssn: "245798",
+      name: "abdu Jhon",
+      salary: "$45,000",
+      occupation: "FrontEnd Developer",
+      type: "Contractual",
+    },
+    {
+      ssn: "955798",
+      name: "Jane Just",
+      salary: "$15,000",
+      occupation: "Accountant",
+      type: "Permanent",
+    },
+    {
+      ssn: "2005798",
+      name: "Hary Wilson",
+      salary: "$65,000",
+      occupation: "DevOps Engineer",
+      type: "FreeLance",
+    },
+    {
+      ssn: "245798",
+      name: "Yup  Jho Jhon",
+      salary: "$45,000",
+      occupation: "FrontEnd Developer",
+      type: "Contractual",
+    },
+    {
+      ssn: "955798",
+      name: "Jane Just",
+      salary: "$15,000",
+      occupation: "Accountant",
+      type: "Permanent",
+    },
+    {
+      ssn: "2005798",
+      name: "Hary Wilson",
+      salary: "$65,000",
+      occupation: "DevOps Engineer",
+      type: "FreeLance",
+    },
+    {
+      ssn: "245798",
+      name: "abdu Jhon",
+      salary: "$45,000",
+      occupation: "FrontEnd Developer",
+      type: "Contractual",
+    },
+    {
+      ssn: "955798",
+      name: "Jane Just",
+      salary: "$15,000",
+      occupation: "Accountant",
+      type: "Permanent",
+    },
+    {
+      ssn: "2005798",
+      name: "Hary Wilson",
+      salary: "$65,000",
+      occupation: "DevOps Engineer",
+      type: "FreeLance",
+    },
+    {
+      ssn: "245798",
+      name: "abdu Jhon",
+      salary: "$45,000",
+      occupation: "FrontEnd Developer",
+      type: "Contractual",
+    },
+    {
+      ssn: "955798",
+      name: "Jane Just",
+      salary: "$15,000",
+      occupation: "Accountant",
+      type: "Permanent",
+    },
+    {
+      ssn: "2005798",
+      name: "Hary Wilson",
+      salary: "$65,000",
+      occupation: "DevOps Engineer",
+      type: "FreeLance",
+    },
+    {
+      ssn: "245798",
+      name: "Yup  Jho Jhon",
+      salary: "$45,000",
+      occupation: "FrontEnd Developer",
+      type: "Contractual",
+    },
+    {
+      ssn: "955798",
+      name: "Jane Just",
+      salary: "$15,000",
+      occupation: "Accountant",
+      type: "Permanent",
+    },
+    {
+      ssn: "2005798",
+      name: "Hary Wilson",
+      salary: "$65,000",
+      occupation: "DevOps Engineer",
+      type: "FreeLance",
+    },
+  ];
+  const [records, setRecords] = useState(data);
+  const handleChange = (e) => {
+    console.log(e.target.value);
+    const newData = data.filter((row) => {
+      return row.name.toLowerCase().includes(e.target.value.toLowerCase());
+    });
+    setRecords(newData);
+  };
   const notify = () => {
     toast.success("🦄 Employee Updated!", {
       position: "top-right",
@@ -47,11 +208,13 @@ const Employee = () => {
   };
 
   return (
-    <div className="container">
+    <div className="container ">
       <Helmet>
         <title>DODI || Employee</title>
       </Helmet>
-      <h1>Employee</h1>
+
+      <h2 className="mb-3">Employee</h2>
+
       <form className="Contracts mb-5">
         <input
           type="text"
@@ -81,44 +244,28 @@ const Employee = () => {
           Add Employees
         </button>
       </form>
-      <div className="mt-5 tabler">
-        <table className="table" style={{ backgroundColor: "#fff" }}>
-          <thead className="thead-dark">
-            <tr>
-              <th scope="col">ID</th>
-              <th scope="col">First Name</th>
-              <th scope="col">Last Name</th>
-              <th scope="col">Salary</th>
-              <th scope="col">Occupation</th>
-              <th scope="col">Type</th>
-              <th scope="col"> Handle</th>
-            </tr>
-          </thead>
-          <tbody>
-            {data.map((data, i) => (
-              <tr key={i}>
-                <th scope="row">{data.ssn}</th>
-                <td>{data.name}</td>
-                <td>{data.last}</td>
-                <td>{data.salary}</td>
-                <td>{data.occupation}</td>
-                <td>{data.type}</td>
-                <td className="btns">
-                  <button
-                    className="btn btn-primary mx-2 btn1"
-                    onClick={notify}
-                  >
-                    Update
-                  </button>
-                  <button className="btn btn-danger btn1" onClick={Swalert}>
-                    delete
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+
+      <div className="container mt-5">
+        <div className="employee__search ">
+          <input
+            type="text"
+            placeholder="Search Employee"
+            className="Contracts__input m-3"
+            onChange={handleChange}
+          />
+
+          {/* <span>           <FaSearch />
+        </span> */}
+        </div>
+        <DataTable
+          columns={columns}
+          data={records}
+          fixedHeader
+          pagination
+          selectableRows
+        ></DataTable>
       </div>
+
       <ToastContainer />
     </div>
   );
