@@ -208,43 +208,50 @@ const Employee = () => {
   };
 
   return (
-    <div className="container ">
-      <Helmet>
-        <title>DODI || Employee</title>
-      </Helmet>
+    <>
+      <div className="container ">
+        <Helmet>
+          <title>DODI || Employee</title>
+        </Helmet>
 
-      <h2 className="mb-3">Employee</h2>
+        <h2 className="mb-3">Employee</h2>
 
-      <form className="Contracts mb-5">
-        <input
-          type="text"
-          placeholder="First Name"
-          className="Contracts__input"
-        />
+        <form className="Contracts mb-5">
+          <input
+            type="text"
+            placeholder="First Name"
+            className="Contracts__input"
+          />
 
-        <input
-          type="text"
-          placeholder="Last Name"
-          className="Contracts__input"
-        />
+          <input
+            type="text"
+            placeholder="Last Name"
+            className="Contracts__input"
+          />
 
-        <input type="text" placeholder="Salary" className="Contracts__input" />
+          <input
+            type="text"
+            placeholder="Salary"
+            className="Contracts__input"
+          />
 
-        <input
-          type="text"
-          placeholder="Occupation"
-          className="Contracts__input"
-        />
-        <input type="text" placeholder="Type" className="Contracts__input" />
+          <input
+            type="text"
+            placeholder="Occupation"
+            className="Contracts__input"
+          />
+          <input type="text" placeholder="Type" className="Contracts__input" />
 
-        <button
-          className="Contracts__btn btn btn-lg btn-primary"
-          onClick={(e) => Added(e)}
-        >
-          Add Employees
-        </button>
-      </form>
+          <button
+            className="Contracts__btn btn btn-lg btn-primary"
+            onClick={(e) => Added(e)}
+          >
+            Add Employees
+          </button>
+        </form>
 
+        <ToastContainer />
+      </div>
       <div className="container mt-5">
         <div className="employee__search ">
           <input
@@ -265,9 +272,7 @@ const Employee = () => {
           selectableRows
         ></DataTable>
       </div>
-
-      <ToastContainer />
-    </div>
+    </>
   );
 };
 

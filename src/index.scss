@@ -33,3 +33,27 @@ body {
   gap: 25px;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 }
+.dILRuI {
+  background-color: rgb(36, 36, 36) !important;
+  color: #fff !important;
+  font-weight: 700;
+}
+.gLTUqv {
+  width: 100%;
+  @media (max-width: 876px) {
+    width: 120% !important;
+  }
+  @media (max-width: 585px) {
+    width: 130% !important;
+  }
+}
+.dlUCce {
+  width: 100%;
+  @media (max-width: 876px) {
+    width: 120% !important;
+  }
+  @media (max-width: 585px) {
+    width: 130% !important;
+    overflow: scroll;
+  }
+}

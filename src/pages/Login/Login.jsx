@@ -9,7 +9,7 @@ const Login = () => {
         <title>DODI ||Login</title>
       </Helmet>
       <div className="container">
-        <h1 className="text-primary text-center font-bold mt-5">
+        <h1 className="text-primary text-center font-bold ">
           <span className="mx-3">&#128075;</span>Welcome Admin
         </h1>
       </div>

@@ -9,7 +9,7 @@ import {
   FaThList,
   FaHome,
 } from "react-icons/fa";
-import { GrLogout, GrShieldSecurity } from "react-icons/gr";
+import { GrLogout, GrShieldSecurity, GrVmMaintenance } from "react-icons/gr";
 import { NavLink } from "react-router-dom";
 import "./navbar.scss";
 import { useLocation } from "react-router-dom";
@@ -36,6 +36,11 @@ const Navbar = ({ children }) => {
       path: "/contrats",
       name: "Contrats",
       icon: <FaRegChartBar />,
+    },
+    {
+      path: "/maintaince",
+      name: "Maintanace",
+      icon: <GrVmMaintenance />,
     },
     {
       path: "/change",

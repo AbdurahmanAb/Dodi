@@ -123,10 +123,10 @@ p {
 }
 
 .list {
-  margin: 1rem;
+  // margin: 1rem;
   li {
-    font-size: 1.2rem;
-    text-transform: uppercase;
+    font-size: 1rem;
+    text-transform: capitalize;
     line-height: 2rem;
   }
 }
@@ -138,4 +138,13 @@ p {
   @media (max-width: 600px) {
     flex-direction: column;
   }
+}
+.fit {
+  width: fit-content !important;
+}
+.add {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 }
