@@ -7,6 +7,7 @@ import Contrats from "./pages/contrats/Contrats";
 import Employee from "./pages/Employee/Employee";
 import Report from "./pages/Report/Report";
 import Navbar from "./components/Navbar/Navbar";
+import Maintaince from "./pages/Maintaince/Maintaince";
 import { ClassNames } from "@emotion/react";
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
             <Route path="/contrats" element={<Contrats />} />
             <Route path="/employee" element={<Employee />} />
             <Route path="/reports" element={<Report />} />
+            <Route path="/maintaince" element={<Maintaince />} />
             <Route path="/login" element={<Login />} />
           </Routes>
         </Navbar>

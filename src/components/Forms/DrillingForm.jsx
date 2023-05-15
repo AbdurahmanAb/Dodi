@@ -140,17 +140,18 @@ export const DrillingForm = () => {
           </div>
         ))}
 
-        <div style={{ marginTop: "5px" }} />
-        <Button
-          color="primary"
-          onClick={() => append({ name: "", amount: "" })}
-          style={{ marginRight: "8px" }}
-        >
-          Add Cost
-        </Button>
-        <Button type="submit" color="success">
-          Submit
-        </Button>
+        <div style={{ marginTop: "5px" }} className="add">
+          <Button
+            color="primary"
+            onClick={() => append({ name: "", amount: "" })}
+            style={{ marginRight: "8px" }}
+          >
+            Add Cost
+          </Button>
+          <Button type="submit" color="success" className="px-5">
+            Submit
+          </Button>
+        </div>
       </FormGroup>
       <div />
     </Form>

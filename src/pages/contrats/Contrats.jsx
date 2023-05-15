@@ -46,8 +46,8 @@ const Contracts = () => {
         <title>DODI || Contracts</title>
       </Helmet>
 
-      <div className="container mt-5">
-        <Card className="p-2">
+      <div className="container mt-5 ">
+        <Card className="p-2 text-center">
           <h1 className="my-4">Add Contracts</h1>
           {contract === "Driling" && (
             <Modal
@@ -96,10 +96,11 @@ const Contracts = () => {
             </button>
           </div>
         </Card>
-        <h1>View Contracts</h1>
-        <Card>
+
+        <Card className="p-2 text-center">
+          <h1>View Contracts</h1>
           <div className="gridl">
-            <div className="card text-center bg-warning Contracts__card d-inline-block">
+            <div className="card text-center bg-warning Contracts__card fit">
               <div className="card__salry p-4">
                 <h3 className="card__header">Building Contract</h3>
                 <p className="text ">Cost: +$123,456</p>
@@ -114,7 +115,7 @@ const Contracts = () => {
                 <section {...getCollapseProps()}>
                   <ul className="list">
                     <li>
-                      contract Recivable : <span>yes</span>
+                      contract Recivable : <span>$500</span>
                     </li>
                     <li>contract Type : Permant </li>
                     <li>Driling: Permant</li>
