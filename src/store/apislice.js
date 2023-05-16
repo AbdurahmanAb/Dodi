@@ -43,8 +43,8 @@ export const apiSlice = createApi({
     }),
 
     deleteEmployees: builder.mutation({
-      query: (id) => ({
-        url: `employees/${id.toString()}`,
+      query: ({id}) => ({
+        url: `employees/${id}`,
         method: "DELETE",
       }),
       invalidatesTags: ["Employees"],

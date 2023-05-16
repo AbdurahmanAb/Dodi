@@ -49,7 +49,16 @@ const Employee = () => {
     },
   ];
   
-  const [records, setRecords] = useState(data);
+  const {
+    data: empData = [],
+    isLoading,
+    isSuccess,
+    // isError,
+    // error,
+  } = useGetEmployeesQuery();
+
+
+  const [records, setRecords] = useState(empData);
   const handleChange = (e) => {
     console.log(e.target.value);
     const newData = data.filter((row) => {
@@ -63,13 +72,7 @@ const Employee = () => {
     formState: { errors },
   } = useForm();
 
-  const {
-    data: empData = [],
-    isLoading,
-    isSuccess,
-    // isError,
-    // error,
-  } = useGetEmployeesQuery();
+ 
 
   const [addEmployee, response] = useAddEmployeesMutation();
   const [deleteEmployee, deleteresponse] = useDeleteEmployeesMutation();
@@ -247,7 +250,7 @@ const Employee = () => {
                   <td>{data.name}</td>
                   <td>{data.salary}</td>
                   <td>{data.occupation}</td>
-                  <td>{data.type}</td>
+                  <td>{data.employeeType}</td>
                   <td className="btns">
                     <button
                       className="btn btn-primary mx-2 btn1"
