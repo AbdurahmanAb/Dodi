@@ -99,11 +99,11 @@ export const DrillingForm = () => {
         )}
       </FormGroup>
       <div style={{ marginTop: "5px" }}></div>
-      <FormGroup>
+      <FormGroup className="group" style={{ marginBottom: "0 !important" }}>
         <Label>Cost:</Label>
         {fields.map((field, index) => (
           <div key={field.id}>
-            <FormGroup>
+            <Form>
               <Label for={`cost.${index}.name`}>Name:</Label>
               <Controller
                 render={({ field }) => <Input {...field} />}
@@ -113,9 +113,9 @@ export const DrillingForm = () => {
               {errors.cost?.[index]?.name?.type === "required" && (
                 <span className="text-danger">This field is required</span>
               )}
-            </FormGroup>
+            </Form>
 
-            <FormGroup>
+            <Form className="group" style={{ marginBottom: "0 !important" }}>
               <Label for={`cost.${index}.amount`}>Amount:</Label>
               <Controller
                 render={({ field }) => <Input {...field} />}
@@ -130,7 +130,7 @@ export const DrillingForm = () => {
                   Amount must be greater than or equal to 0
                 </span>
               )}
-            </FormGroup>
+            </Form>
             <div style={{ marginTop: "5px" }} />
             {fields.length > 1 && (
               <Button color="danger" onClick={() => remove(index)}>

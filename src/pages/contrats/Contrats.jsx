@@ -6,7 +6,7 @@ import { Helmet } from "react-helmet";
 import "react-responsive-modal/styles.css";
 import { Modal } from "react-responsive-modal";
 import { DrillingForm } from "./../../components/Forms/DrillingForm";
-import { Card } from "reactstrap";
+import { Card, CardHeader } from "reactstrap";
 
 const Contracts = () => {
   const Added = (e) => {
@@ -17,10 +17,16 @@ const Contracts = () => {
       timer: 1500,
     });
   };
+  const [Active, setActive] = useState(false);
   const [open, setOpen] = useState(false);
   const [contract, setContract] = useState("");
   const onOpenModal = () => setOpen(true);
   const onCloseModal = () => setOpen(false);
+  const HandleActive = (e) => {
+    e.preventDefault();
+    window.scrollTo(0, 0);
+    console.log("first");
+  };
 
   const Truking = () => {
     onOpenModal();
@@ -33,10 +39,7 @@ const Contracts = () => {
   const { getCollapseProps, getToggleProps, isExpanded } = useCollapse();
   useEffect(() => {
     if (isExpanded) {
-      window.scrollTo({
-        top: document.documentElement.scrollHeight,
-        behavior: "smooth",
-      });
+      window.scroll({ top: 0, left: 0, behavior: "smooth" });
     }
   }, [isExpanded]);
 
@@ -45,58 +48,60 @@ const Contracts = () => {
       <Helmet>
         <title>DODI || Contracts</title>
       </Helmet>
+      <CardHeader>
+        <h1>Contracts</h1>
+      </CardHeader>
+      <Card className="p-2 text-center mx-auto">
+        <h1 className="my-4">Add Contracts</h1>
+        {contract === "Driling" && (
+          <Modal
+            open={open}
+            onClose={onCloseModal}
+            center
+            classNames={{
+              modal: "customModal",
+            }}
+          >
+            <h2>Drilling Contract</h2>
+            <DrillingForm />
+          </Modal>
+        )}
+        {contract === "Trucking" && (
+          <Modal open={open} onClose={onCloseModal} center>
+            <h2>Trucking</h2>
+            <form className="Contracts mb-5">
+              <input
+                type="text"
+                placeholder="Contract"
+                className="Contracts__input"
+              />
+
+              <input
+                type="text"
+                placeholder="Driling"
+                className="Contracts__input"
+              />
+            </form>
+          </Modal>
+        )}
+
+        <div className="buttons m-5 ">
+          <button
+            className="btn btn-lg btn-info text-white  "
+            onClick={Truking}
+          >
+            Add Trucking
+          </button>
+          <button
+            className="btn btn-lg btn-primary text-white"
+            onClick={Driling}
+          >
+            Add Driling
+          </button>
+        </div>
+      </Card>
 
       <div className="container mt-5 ">
-        <Card className="p-2 text-center">
-          <h1 className="my-4">Add Contracts</h1>
-          {contract === "Driling" && (
-            <Modal
-              open={open}
-              onClose={onCloseModal}
-              center
-              classNames={{
-                modal: "customModal",
-              }}
-            >
-              <h2>Drilling Contract</h2>
-              <DrillingForm />
-            </Modal>
-          )}
-          {contract === "Trucking" && (
-            <Modal open={open} onClose={onCloseModal} center>
-              <h2>Trucking</h2>
-              <form className="Contracts mb-5">
-                <input
-                  type="text"
-                  placeholder="Contract"
-                  className="Contracts__input"
-                />
-
-                <input
-                  type="text"
-                  placeholder="Driling"
-                  className="Contracts__input"
-                />
-              </form>
-            </Modal>
-          )}
-
-          <div className="buttons m-5 ">
-            <button
-              className="btn btn-lg btn-info text-white  "
-              onClick={Truking}
-            >
-              Add Trucking
-            </button>
-            <button
-              className="btn btn-lg btn-primary text-white"
-              onClick={Driling}
-            >
-              Add Driling
-            </button>
-          </div>
-        </Card>
-
         <Card className="p-2 text-center">
           <h1>View Contracts</h1>
           <div className="gridl">
@@ -105,10 +110,18 @@ const Contracts = () => {
                 <h3 className="card__header">Building Contract</h3>
                 <p className="text ">Cost: +$123,456</p>
                 <div className="btns">
-                  <button {...getToggleProps()} className="btn  btn-success">
+                  <button
+                    {...getToggleProps({ onClick: HandleActive })}
+                    className="btn  btn-success"
+                  >
                     {isExpanded ? "Hide" : "View"}
                   </button>
-                  <button className="btn btn-info mx-2">Update</button>
+                  <button
+                    className="btn btn-info mx-2"
+                    onClick={(e) => HandleActive(e)}
+                  >
+                    Update
+                  </button>
                   <button className="btn btn-danger mx-2 ">Delete</button>
                 </div>
 
