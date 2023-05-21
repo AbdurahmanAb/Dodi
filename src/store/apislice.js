@@ -4,7 +4,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const apiSlice = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:8080/",
+    baseUrl: "https://dodi-mikyasmillion851.b4a.run/",
     /*
     prepareHeaders: (headers) => {
       const token = localStorage.getItem("token");
@@ -16,7 +16,11 @@ export const apiSlice = createApi({
   }),
   //used to invalidate the data automatically
   tagTypes: [
-    "Employees"
+    "Employees",
+    "DrillingContract",
+    "TruckingContract",
+    "MaintenanceCost",
+    
   ],
   endpoints: (builder) => ({
     //every function here will have  is loading ,is errorr,is success etc...
@@ -49,12 +53,121 @@ export const apiSlice = createApi({
       }),
       invalidatesTags: ["Employees"],
     }),
-}),
-});
+    getDrillingContract: builder.query({
+      query: () => "drilling-contracts",
+      providesTags: ["DrillingContract"],
+    }),
+    addDrillingContract: builder.mutation({
+      query: (drillingContract) => ({
+        url: "drilling-contracts/",
+        method: "POST",
+        body: drillingContract,
+      }),
+      invalidatesTags: ["DrillingContract"],
+    }),
+    updateDrillingContract: builder.mutation({
+      query: (drillingContract, id) => ({
+        url: "drilling-contracts",
+        method: "PUT",
+        body: drillingContract,
+        id,
+      }),
+      invalidatesTags: ["DrillingContract"],
+    }),
+
+    deleteDrillingContract: builder.mutation({
+      query: ({id}) => ({
+        url: `drilling-contracts/${id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["DrillingContract"],
+    }),
+
+    getTruckingContract: builder.query({
+      query: () => "trucking-contracts",
+      providesTags: ["TruckingContract"],
+    }),
+    addTruckingContract: builder.mutation({
+      query: (TruckingContract) => ({
+        url: "trucking-contracts",
+        method: "POST",
+        body: TruckingContract,
+      }),
+      invalidatesTags: ["TruckingContract"],
+    }),
+    updateTruckingContract: builder.mutation({
+      query: (TruckingContract, {id}) => ({
+        url: `trucking-contracts/${id}`,
+        method: "PUT",
+        body: TruckingContract,
+        id,
+      }),
+      invalidatesTags: ["TruckingContract"],
+    }),
+
+    deleteTruckingContract: builder.mutation({
+      query: ({id}) => ({
+        url: `Trucking-contracts/${id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["TruckingContract"],
+    }),
+    
+    getMaintenanceCost: builder.query({
+      query: () => "maintenance-costs",
+      providesTags: ["MaintenanceCost"],
+    }),
+    addMaintenanceCost: builder.mutation({
+      query: (MaintenanceCost) => ({
+        url: "maintenance-costs",
+        method: "POST",
+        body: MaintenanceCost,
+      }),
+      invalidatesTags: ["MaintenanceCost"],
+    }),
+    updateMaintenanceCost: builder.mutation({
+      query: (MaintenanceCost, {id}) => ({
+        url: `maintenance-costs/${id}`,
+        method: "PUT",
+        body: MaintenanceCost,
+        id,
+      }),
+      invalidatesTags: ["MaintenanceCost"],
+    }),
+
+    deleteMaintenanceCost: builder.mutation({
+      query: ({id}) => ({
+        url: `maintenance-costs/${id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["MaintenanceCost"],
+    }),
+
+
+
+
+
+
+
+
+
+  }),});
 
 export const {
     useGetEmployeesQuery,
     useAddEmployeesMutation,
     useUpdateEmployeesMutation,
     useDeleteEmployeesMutation,
+    useGetDrillingContractQuery,
+    useAddDrillingContractMutation,
+    useUpdateDrillingContractMutation,
+    useDeleteDrillingContractMutation,
+    useGetTruckingContractQuery,
+    useAddTruckingContractMutation,
+    useUpdateTruckingContractMutation,
+    useDeleteTruckingContractMutation,
+    useGetMaintenanceCostQuery,
+    useAddMaintenanceCostMutation,
+    useUpdateMaintenanceCostMutation,
+    useDeleteMaintenanceCostMutation,
 } = apiSlice;

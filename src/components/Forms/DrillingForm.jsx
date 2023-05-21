@@ -1,6 +1,15 @@
 import React, { useState } from "react";
 import { useForm, useFieldArray, Controller } from "react-hook-form";
 import { Multiselect } from "multiselect-react-dropdown";
+import {useGetEmployeesQuery,
+  useGetDrillingContractQuery,
+useAddDrillingContractMutation,
+useUpdateDrillingContractMutation,
+useDeleteDrillingContractMutation,
+//useAddTruckingContractMutation,
+//useDeleteTruckingContractMutation,
+//useGetTruckingContractQuery
+} from "../../store/apiSlice";
 import "./DrillingForm.scss";
 import {
   Container,
@@ -29,13 +38,17 @@ export const DrillingForm = () => {
     },
   });
 
-  const options = [
-    { id: 1, name: "Alice Johnson" },
-    { id: 2, name: "Bob Smith" },
-    { id: 3, name: "Charlie Brown" },
-    { id: 4, name: "David Lee" },
-    { id: 5, name: "Emily Davis" },
-  ];
+  const {
+    data: empData = [],
+    isLoading,
+    isSuccess:isempSuccess,
+    // isError,
+    // error,
+  } = useGetEmployeesQuery(); 
+
+
+  const [addDrilling, drillingResponse] = useAddDrillingContractMutation();
+  const options =empData;
 
   const { fields, append, remove } = useFieldArray({
     control,
@@ -43,11 +56,17 @@ export const DrillingForm = () => {
   });
 
   const onSubmit = (data) => {
-    console.log(data);
+    addDrilling({
+      contractReceivable:data.contractReceivable,
+      site:data.site,
+      employeeList:data.employee,
+      cost:data.cost});
+      console.log(data);
   };
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)} style={{ marginRight: "18px" }}>
+      {isempSuccess &&<>
       <FormGroup>
         <Label for="contractReceivable">Contract Receivable:</Label>
         <Controller
@@ -154,6 +173,7 @@ export const DrillingForm = () => {
         </div>
       </FormGroup>
       <div />
+      </>}
     </Form>
-  );
+            );
 };

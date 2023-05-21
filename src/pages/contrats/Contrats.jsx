@@ -7,6 +7,7 @@ import "react-responsive-modal/styles.css";
 import { Modal } from "react-responsive-modal";
 import { DrillingForm } from "./../../components/Forms/DrillingForm";
 import { Card } from "reactstrap";
+import { useGetDrillingContractQuery } from "../../store/apiSlice";
 
 const Contracts = () => {
   const Added = (e) => {
@@ -21,6 +22,10 @@ const Contracts = () => {
   const [contract, setContract] = useState("");
   const onOpenModal = () => setOpen(true);
   const onCloseModal = () => setOpen(false);
+  const {isLoading
+   ,isSuccess:isDr,
+  data:drData}=useGetDrillingContractQuery();  
+ 
 
   const Truking = () => {
     onOpenModal();
@@ -101,9 +106,14 @@ const Contracts = () => {
           <h1>View Contracts</h1>
           <div className="gridl">
             <div className="card text-center bg-warning Contracts__card fit">
+              
+              {isDr&&
+
+              drData.map(i=>
+              <> 
               <div className="card__salry p-4">
-                <h3 className="card__header">Building Contract</h3>
-                <p className="text ">Cost: +$123,456</p>
+                <h3 className="card__header">Drilling Contract</h3>
+                <p className="text ">{i.site}</p>
                 <div className="btns">
                   <button {...getToggleProps()} className="btn  btn-success">
                     {isExpanded ? "Hide" : "View"}
@@ -111,16 +121,12 @@ const Contracts = () => {
                   <button className="btn btn-info mx-2">Update</button>
                   <button className="btn btn-danger mx-2 ">Delete</button>
                 </div>
-
                 <section {...getCollapseProps()}>
                   <ul className="list">
                     <li>
-                      contract Recivable : <span>$500</span>
+                      contract Recivable : <span>{i.contractReceivable}</span>
                     </li>
-                    <li>contract Type : Permant </li>
-                    <li>Driling: Permant</li>
-                    <li>Start Date : Permant</li>
-                    <li>Cost: Permant</li>
+                    <li>Start Date :{i.startDate}</li>
                     <li>Amount per Drim Cost: Permant </li>
                     <li>Employee List : Permant </li>
                     <li>Transportation : Permant</li>
@@ -131,6 +137,7 @@ const Contracts = () => {
                   </ul>
                 </section>
               </div>
+              </>)}
             </div>
           </div>
         </Card>
