@@ -5,7 +5,15 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import data from "./dummydata";
 import Swal from "sweetalert2";
+<<<<<<< HEAD
 
+=======
+import {
+  useDeleteEmployeesMutation,
+  useGetEmployeesQuery,
+  useAddEmployeesMutation,
+} from "../../store/apiSlice";
+>>>>>>> 202616860de010fb5775b5d5de068f9ea75857ee
 import "./employee.scss";
 import {
   Button,
@@ -44,8 +52,22 @@ const Employee = () => {
       selector: (row) => row.type,
     },
   ];
+<<<<<<< HEAD
 
   const [records, setRecords] = useState(data);
+=======
+  
+  const {
+    data: empData = [],
+    isLoading,
+    isSuccess,
+    // isError,
+    // error,
+  } = useGetEmployeesQuery();
+
+
+  const [records, setRecords] = useState(empData);
+>>>>>>> 202616860de010fb5775b5d5de068f9ea75857ee
   const handleChange = (e) => {
     console.log(e.target.value);
     const newData = data.filter((row) => {
@@ -59,6 +81,7 @@ const Employee = () => {
     formState: { errors },
   } = useForm();
 
+<<<<<<< HEAD
   // const {
   //   data: empData = [],
   //   isLoading,
@@ -69,6 +92,12 @@ const Employee = () => {
 
   const [addEmployee, response] = useState();
   const [deleteEmployee, deleteresponse] = useState();
+=======
+ 
+
+  const [addEmployee, response] = useAddEmployeesMutation();
+  const [deleteEmployee, deleteresponse] = useDeleteEmployeesMutation();
+>>>>>>> 202616860de010fb5775b5d5de068f9ea75857ee
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
@@ -90,6 +119,11 @@ const Employee = () => {
       });
     }
   };
+<<<<<<< HEAD
+=======
+  
+
+>>>>>>> 202616860de010fb5775b5d5de068f9ea75857ee
 
   const notify = () => {
     toast.success("🦄 Employee Updated!", {
@@ -117,9 +151,15 @@ const Employee = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         //Delete From DataBase
+<<<<<<< HEAD
         deleteEmployee({ id: id });
         if (deleteresponse.isSuccess) {
           notify();
+=======
+        deleteEmployee({id:id});
+        if(deleteresponse.isSuccess){
+        notify();
+>>>>>>> 202616860de010fb5775b5d5de068f9ea75857ee
         }
       }
       console.log(result);
@@ -127,6 +167,7 @@ const Employee = () => {
   };
 
   return (
+<<<<<<< HEAD
     <div>
       <Helmet>
         <title>DODI || Employee</title>
@@ -239,12 +280,127 @@ const Employee = () => {
             </thead>
             <tbody>
               {data.map((data, i) => (
+=======
+    <div className="container">
+      <Helmet>
+        <title>DODI || Employee</title>
+      </Helmet>
+      <CardHeader>Employee</CardHeader>
+      <Form className="Contracts mb-5" onSubmit={handleSubmit(onSubmit)}>
+        <FormGroup className="mb-3">
+          <Label for="fullName">Full Name</Label>
+          <Controller
+            name="fullName"
+            control={control}
+            defaultValue=""
+            rules={{ required: true }}
+            render={({ field }) => <Input {...field} type="text" required />}
+          />
+          {errors.fullName && (
+            <span className="error">Full Name is required</span>
+          )}
+        </FormGroup>
+
+        <FormGroup className="mb-3">
+          <Label for="salary">Salary</Label>
+          <Controller
+            name="salary"
+            control={control}
+            defaultValue=""
+            rules={{ required: true }}
+            render={({ field }) => <Input {...field} type="text" required />}
+          />
+          {errors.salary && <span className="error">Salary is required</span>}
+        </FormGroup>
+
+        <FormGroup className="mb-3">
+          <Label for="occupation">Occupation</Label>
+          <Controller
+            name="occupation"
+            control={control}
+            defaultValue=""
+            rules={{ required: true }}
+            render={({ field }) => <Input {...field} type="text" required />}
+          />
+          {errors.occupation && (
+            <span className="error">Occupation is required</span>
+          )}
+        </FormGroup>
+
+        <FormGroup className="mb-3">
+          <Label for="type">Type</Label>
+          <Controller
+            name="type"
+            control={control}
+            defaultValue=""
+            rules={{ required: true }}
+            render={({ field }) => (
+              <Dropdown isOpen={dropdownOpen} toggle={toggleDropdown}>
+                <DropdownToggle caret>
+                  {field.value === 0
+                    ? "TRUCKING"
+                    : field.value === 1
+                    ? "DRILLING"
+                    : field.value
+                    ? field.value
+                    : "Select type"}
+                </DropdownToggle>
+                <DropdownMenu>
+                  <DropdownItem
+                    onClick={() => {
+                      field.onChange(0);
+                      toggleDropdown();
+                    }}
+                  >
+                    TRUCKING
+                  </DropdownItem>
+                  <DropdownItem
+                    onClick={() => {
+                      field.onChange(1);
+                      toggleDropdown();
+                    }}
+                  >
+                    DRILLING
+                  </DropdownItem>
+                </DropdownMenu>
+              </Dropdown>
+            )}
+          />
+          {errors.type && <span className="error">Type is required</span>}
+        </FormGroup>
+
+        <Button
+          className="Contracts__btn btn btn-lg btn-primary mt-3"
+          type="submit"
+        >
+          Add Employees
+        </Button>
+      </Form>
+      <div className="mt-5 tabler">
+        <table className="table" style={{ backgroundColor: "#fff" }}>
+          <thead className="thead-dark">
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Full Name</th>
+              <th scope="col">Salary</th>
+              <th scope="col">Occupation</th>
+              <th scope="col">Type</th>
+            </tr>
+          </thead>
+          <tbody>
+            {isSuccess &&
+              empData.map((data, i) => (
+>>>>>>> 202616860de010fb5775b5d5de068f9ea75857ee
                 <tr key={i}>
                   <th scope="row">{data.id}</th>
                   <td>{data.name}</td>
                   <td>{data.salary}</td>
                   <td>{data.occupation}</td>
+<<<<<<< HEAD
                   <td>{data.type}</td>
+=======
+                  <td>{data.employeeType}</td>
+>>>>>>> 202616860de010fb5775b5d5de068f9ea75857ee
                   <td className="btns">
                     <button
                       className="btn btn-primary mx-2 btn1"
@@ -252,18 +408,27 @@ const Employee = () => {
                     >
                       Update
                     </button>
+<<<<<<< HEAD
                     <button
                       className="btn btn-danger btn1"
                       onClick={() => Swalert(data.id)}
                     >
+=======
+                    <button className="btn btn-danger btn1" onClick={()=>Swalert(data.id)}>
+>>>>>>> 202616860de010fb5775b5d5de068f9ea75857ee
                       delete
                     </button>
                   </td>
                 </tr>
               ))}
+<<<<<<< HEAD
             </tbody>
           </table>
         </div>
+=======
+          </tbody>
+        </table>
+>>>>>>> 202616860de010fb5775b5d5de068f9ea75857ee
       </div>
       <ToastContainer />
     </div>

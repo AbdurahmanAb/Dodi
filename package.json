@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --port 4000",
     "build": "vite build",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
@@ -31,6 +31,10 @@
     "react-toastify": "^9.1.2",
     "reactstrap": "^9.1.9",
     "sass": "^1.62.1",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.4.1",
+    "react-redux": "^8.0.2",
+    "@reduxjs/toolkit": "^1.8.5",
     "sweetalert2": "^11.7.5"
   },
   "devDependencies": {
