@@ -20,7 +20,6 @@ export const apiSlice = createApi({
     "DrillingContract",
     "TruckingContract",
     "MaintenanceCost",
-    
   ],
   endpoints: (builder) => ({
     //every function here will have  is loading ,is errorr,is success etc...
@@ -47,7 +46,7 @@ export const apiSlice = createApi({
     }),
 
     deleteEmployees: builder.mutation({
-      query: ({id}) => ({
+      query: ({ id }) => ({
         url: `employees/${id}`,
         method: "DELETE",
       }),
@@ -76,7 +75,7 @@ export const apiSlice = createApi({
     }),
 
     deleteDrillingContract: builder.mutation({
-      query: ({id}) => ({
+      query: ({ id }) => ({
         url: `drilling-contracts/${id}`,
         method: "DELETE",
       }),
@@ -96,7 +95,7 @@ export const apiSlice = createApi({
       invalidatesTags: ["TruckingContract"],
     }),
     updateTruckingContract: builder.mutation({
-      query: (TruckingContract, {id}) => ({
+      query: (TruckingContract, { id }) => ({
         url: `trucking-contracts/${id}`,
         method: "PUT",
         body: TruckingContract,
@@ -106,13 +105,13 @@ export const apiSlice = createApi({
     }),
 
     deleteTruckingContract: builder.mutation({
-      query: ({id}) => ({
+      query: ({ id }) => ({
         url: `Trucking-contracts/${id}`,
         method: "DELETE",
       }),
       invalidatesTags: ["TruckingContract"],
     }),
-    
+
     getMaintenanceCost: builder.query({
       query: () => "maintenance-costs",
       providesTags: ["MaintenanceCost"],
@@ -126,7 +125,7 @@ export const apiSlice = createApi({
       invalidatesTags: ["MaintenanceCost"],
     }),
     updateMaintenanceCost: builder.mutation({
-      query: (MaintenanceCost, {id}) => ({
+      query: (MaintenanceCost, { id }) => ({
         url: `maintenance-costs/${id}`,
         method: "PUT",
         body: MaintenanceCost,
@@ -136,38 +135,30 @@ export const apiSlice = createApi({
     }),
 
     deleteMaintenanceCost: builder.mutation({
-      query: ({id}) => ({
+      query: ({ id }) => ({
         url: `maintenance-costs/${id}`,
         method: "DELETE",
       }),
       invalidatesTags: ["MaintenanceCost"],
     }),
-
-
-
-
-
-
-
-
-
-  }),});
+  }),
+});
 
 export const {
-    useGetEmployeesQuery,
-    useAddEmployeesMutation,
-    useUpdateEmployeesMutation,
-    useDeleteEmployeesMutation,
-    useGetDrillingContractQuery,
-    useAddDrillingContractMutation,
-    useUpdateDrillingContractMutation,
-    useDeleteDrillingContractMutation,
-    useGetTruckingContractQuery,
-    useAddTruckingContractMutation,
-    useUpdateTruckingContractMutation,
-    useDeleteTruckingContractMutation,
-    useGetMaintenanceCostQuery,
-    useAddMaintenanceCostMutation,
-    useUpdateMaintenanceCostMutation,
-    useDeleteMaintenanceCostMutation,
+  useGetEmployeesQuery,
+  useAddEmployeesMutation,
+  useUpdateEmployeesMutation,
+  useDeleteEmployeesMutation,
+  useGetDrillingContractQuery,
+  useAddDrillingContractMutation,
+  useUpdateDrillingContractMutation,
+  useDeleteDrillingContractMutation,
+  useGetTruckingContractQuery,
+  useAddTruckingContractMutation,
+  useUpdateTruckingContractMutation,
+  useDeleteTruckingContractMutation,
+  useGetMaintenanceCostQuery,
+  useAddMaintenanceCostMutation,
+  useUpdateMaintenanceCostMutation,
+  useDeleteMaintenanceCostMutation,
 } = apiSlice;

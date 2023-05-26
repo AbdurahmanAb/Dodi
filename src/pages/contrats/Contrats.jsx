@@ -6,12 +6,8 @@ import { Helmet } from "react-helmet";
 import "react-responsive-modal/styles.css";
 import { Modal } from "react-responsive-modal";
 import { DrillingForm } from "./../../components/Forms/DrillingForm";
-<<<<<<< HEAD
-import { Card, CardHeader } from "reactstrap";
-=======
 import { Card } from "reactstrap";
-import { useGetDrillingContractQuery } from "../../store/apiSlice";
->>>>>>> 202616860de010fb5775b5d5de068f9ea75857ee
+// import { useGetDrillingContractQuery } from "../../store/apiSlice";
 
 const Contracts = () => {
   const Added = (e) => {
@@ -27,18 +23,11 @@ const Contracts = () => {
   const [contract, setContract] = useState("");
   const onOpenModal = () => setOpen(true);
   const onCloseModal = () => setOpen(false);
-<<<<<<< HEAD
-  const HandleActive = (e) => {
-    e.preventDefault();
-    window.scrollTo(0, 0);
-    console.log("first");
-  };
-=======
-  const {isLoading
-   ,isSuccess:isDr,
-  data:drData}=useGetDrillingContractQuery();  
- 
->>>>>>> 202616860de010fb5775b5d5de068f9ea75857ee
+  const {
+    isLoading,
+    isSuccess: isDr,
+    data: drData,
+  } = useGetDrillingContractQuery();
 
   const Truking = () => {
     onOpenModal();
@@ -118,46 +107,46 @@ const Contracts = () => {
           <h1>View Contracts</h1>
           <div className="gridl">
             <div className="card text-center bg-warning Contracts__card fit">
-              
-              {isDr&&
-
-              drData.map(i=>
-              <> 
-              <div className="card__salry p-4">
-                <h3 className="card__header">Drilling Contract</h3>
-                <p className="text ">{i.site}</p>
-                <div className="btns">
-                  <button
-                    {...getToggleProps({ onClick: HandleActive })}
-                    className="btn  btn-success"
-                  >
-                    {isExpanded ? "Hide" : "View"}
-                  </button>
-                  <button
-                    className="btn btn-info mx-2"
-                    onClick={(e) => HandleActive(e)}
-                  >
-                    Update
-                  </button>
-                  <button className="btn btn-danger mx-2 ">Delete</button>
-                </div>
-                <section {...getCollapseProps()}>
-                  <ul className="list">
-                    <li>
-                      contract Recivable : <span>{i.contractReceivable}</span>
-                    </li>
-                    <li>Start Date :{i.startDate}</li>
-                    <li>Amount per Drim Cost: Permant </li>
-                    <li>Employee List : Permant </li>
-                    <li>Transportation : Permant</li>
-                    <li>Trip Beging : Permant</li>
-                    <li>Trip Destination : Permant </li>
-                    <li>Maintaince cost : Permant</li>
-                    <li>Type: Permant </li>
-                  </ul>
-                </section>
-              </div>
-              </>)}
+              {isDr &&
+                drData.map((i) => (
+                  <>
+                    <div className="card__salry p-4">
+                      <h3 className="card__header">Drilling Contract</h3>
+                      <p className="text ">{i.site}</p>
+                      <div className="btns">
+                        <button
+                          {...getToggleProps({ onClick: HandleActive })}
+                          className="btn  btn-success"
+                        >
+                          {isExpanded ? "Hide" : "View"}
+                        </button>
+                        <button
+                          className="btn btn-info mx-2"
+                          onClick={(e) => HandleActive(e)}
+                        >
+                          Update
+                        </button>
+                        <button className="btn btn-danger mx-2 ">Delete</button>
+                      </div>
+                      <section {...getCollapseProps()}>
+                        <ul className="list">
+                          <li>
+                            contract Recivable :{" "}
+                            <span>{i.contractReceivable}</span>
+                          </li>
+                          <li>Start Date :{i.startDate}</li>
+                          <li>Amount per Drim Cost: Permant </li>
+                          <li>Employee List : Permant </li>
+                          <li>Transportation : Permant</li>
+                          <li>Trip Beging : Permant</li>
+                          <li>Trip Destination : Permant </li>
+                          <li>Maintaince cost : Permant</li>
+                          <li>Type: Permant </li>
+                        </ul>
+                      </section>
+                    </div>
+                  </>
+                ))}
             </div>
           </div>
         </Card>
